@@ -7,7 +7,15 @@ import EditPage from "./components/EditPage";
 import GameDetails from "./components/GameDetails";
 import Catalog from "./components/Catalog";
 
+
+
 function App() {
+  const routes = {
+    '/home': WelcomeWorld,
+    '/games': Catalog,
+    '/create-game': CreatePage
+  }
+
   return (
     <div id="box">
       <Header />
@@ -17,17 +25,6 @@ function App() {
 
       <WelcomeWorld />
 
-      <Login />
-
-      <Register />
-
-      <CreatePage />
-
-      <EditPage />
-
-      <GameDetails />
-
-      <Catalog />
     </div>
   );
 }
