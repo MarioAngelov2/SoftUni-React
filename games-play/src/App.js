@@ -6,33 +6,31 @@ import CreatePage from "./components/CreatePage";
 import EditPage from "./components/EditPage";
 import GameDetails from "./components/GameDetails";
 import Catalog from "./components/Catalog";
-import {useState, createElement} from "react";
-
+import ErrorPage from "./components/ErrorPage";
+import { useState, createElement } from "react";
 
 function App() {
-  const [page, setPage] = useState('/home')
+  const [page, setPage] = useState("/home");
 
   const routes = {
-    '/home': <WelcomeWorld />,
-    '/games': <Catalog />,
-    '/create-game': <CreatePage />
+    "/home": <WelcomeWorld />,
+    "/games": <Catalog />,
+    "/create-game": <CreatePage />,
+    "/login": <Login />,
+    "/register": <Register />
   };
 
   const navigationChangeHandler = (path) => {
     setPage(path);
-  }
+  };
 
   return (
     <div id="box">
-      <Header
-        navigationChangeHandler={navigationChangeHandler}
-      />
+      <Header navigationChangeHandler={navigationChangeHandler} />
 
       <main id="main-content">
-        {routes[page] || <h2>No Page Found!</h2>}
+        {routes[page] || <ErrorPage />}
       </main>
-
-      <WelcomeWorld />
 
     </div>
   );
