@@ -5,7 +5,7 @@ import Register from "./components/Register";
 import CreatePage from "./components/CreatePage";
 import EditPage from "./components/EditPage";
 import GameDetails from "./components/GameDetails";
-import Catalog from "./components/Catalog";
+import Catalog from "./components/GameCatalog/Catalog";
 import ErrorPage from "./components/ErrorPage";
 import { useState, createElement } from "react";
 
