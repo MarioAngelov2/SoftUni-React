@@ -1,19 +1,8 @@
 import { Link } from 'react-router-dom';
 
-function Header({
-  navigationChangeHandler
-}) {
-  function onClickHandler(ev) {
-    ev.preventDefault();
-
-    if (ev.target.tagName === 'A') {
-      let url = new URL(ev.target.href);
-      navigationChangeHandler(url.pathname)
-    }
-  }
-
+const Header = () => {
   return (
-    <header onClick={onClickHandler}>
+    <header>
       <h1><Link className="home" to="/home">GamesPlay</Link></h1>
       <nav>
         <Link to="/games">All games</Link>

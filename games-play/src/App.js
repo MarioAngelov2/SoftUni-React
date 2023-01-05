@@ -11,36 +11,15 @@ import { useState, createElement } from "react";
 import { Route, Switch } from 'react-router-dom';
 
 function App() {
-  const [page, setPage] = useState("/home");
-
-  const navigationChangeHandler = (path) => {
-    setPage(path);
-  }
-
-  const router = (path) => {
-    let pathNames = path.split('/');
-    let rootPath = pathNames[1];
-    let argument = pathNames[2];
-
-    const routes = {
-      "home": <WelcomeWorld />,
-      "games": <Catalog />,
-      "create-game": <CreatePage />,
-      "login": <Login />,
-      "register": <Register />,
-      "details": <GameDetails id={argument} />
-    };
-
-    return routes[rootPath]
-  }
 
   return (
     <div id="box">
-      <Header navigationChangeHandler={navigationChangeHandler} />
+      <Header />
 
       <main id="main-content">
         <Switch>
           <Route path='/' exact component={WelcomeWorld} />
+          <Route path='/home' exact component={WelcomeWorld} />
           <Route path='/games' component={Catalog} />
           <Route path='/create-game' component={CreatePage} />
           <Route path='/login' component={Login} />
