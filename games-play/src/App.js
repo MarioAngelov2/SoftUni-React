@@ -8,7 +8,7 @@ import GameDetails from "./components/GameDetails";
 import Catalog from "./components/GameCatalog/Catalog";
 import ErrorPage from "./components/ErrorPage";
 import { useState, createElement } from "react";
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
   const [page, setPage] = useState("/home");
@@ -39,11 +39,13 @@ function App() {
       <Header navigationChangeHandler={navigationChangeHandler} />
 
       <main id="main-content">
-        <Route path='/' exact component={WelcomeWorld} />
-        <Route path='/games' component={Catalog} />
-        <Route path='/create-game' component={CreatePage} />
-        <Route path='/login' component={Login} />
-        <Route path='/register' component={Register} />
+        <Switch>
+          <Route path='/' exact component={WelcomeWorld} />
+          <Route path='/games' component={Catalog} />
+          <Route path='/create-game' component={CreatePage} />
+          <Route path='/login' component={Login} />
+          <Route path='/register' component={Register} />
+        </Switch>
       </main>
 
     </div>
