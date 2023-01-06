@@ -20,10 +20,11 @@ function App() {
         <Switch>
           <Route path='/' exact component={WelcomeWorld} />
           <Route path='/home' exact component={WelcomeWorld} />
-          <Route path='/games' component={Catalog} />
+          <Route path='/games' exact component={Catalog} />
           <Route path='/create-game' component={CreatePage} />
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
+          <Route path='/games/:gameId' component={GameDetails} />
         </Switch>
       </main>
 

@@ -1,7 +1,14 @@
-function Login() {
+function Login({
+  history
+}) {
+  const onFormSubmit = (ev) => {
+    ev.preventDefault();
+    history.push('/')
+  }
+
   return (
     <section id="login-page" className="auth">
-      <form id="login">
+      <form id="login" onSubmit={onFormSubmit}>
 
         <div className="container">
           <div className="brand-logo"></div>

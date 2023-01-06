@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react'
 import * as gameServices from '../services/gameService'
 
 const GameDetails = ({
-  id
+  match
 }) => {
   const [game, setGame] = useState({});
 
   useEffect(() => {
-    gameServices.getOne(id)
+    gameServices.getOne(match.params.gameId)
       .then(result => {
         setGame(result);
       })
