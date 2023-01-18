@@ -1,12 +1,20 @@
+import * as authService from "../services/authService";
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
-const onLogin = (ev) => {
-  ev.preventDefault();
+  let navigate = useNavigate();
 
-  let formData = new FormData(ev.currentTarget);
+  const onLogin = (ev) => {
+    ev.preventDefault();
 
-  console.log(formData.get('email'))
+    let formData = new FormData(ev.currentTarget);
 
-}
+    let email = formData.get("email");
+
+    authService.login(email);
+
+    navigate('/');
+  };
 
   return (
     <section id="login-page" className="login">

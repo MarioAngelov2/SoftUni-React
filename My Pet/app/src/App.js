@@ -7,10 +7,14 @@ import Create from "./components/Create";
 import Edit from "./components/Edit";
 import MyPets from "./components/MyPets";
 import Footer from "./components/Footer";
+import { isAuthenticated } from "./services/authService";
 
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
-function App() {
+function App() {{
+  const [user, setUser] = useState({isAuthenticated: false, username: ''});
+
   return (
     <div className="App">
       <div id="container">
