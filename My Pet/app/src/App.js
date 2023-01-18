@@ -8,12 +8,22 @@ import Edit from "./components/Edit";
 import MyPets from "./components/MyPets";
 import Footer from "./components/Footer";
 import { isAuthenticated } from "./services/authService";
+import * as authService from './services/authService'
 
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
-function App() {{
-  const [user, setUser] = useState({isAuthenticated: false, username: ''});
+function App() {
+  const [userInfo, setUserInfo] = useState({isAuthenticated: false, username: ''})
+
+  useEffect(() => {
+    let user = authService.getUser();
+
+    setUserInfo({
+      isAuthenticated: Boolean(user),
+      user,
+    })
+  }, []);
 
   return (
     <div className="App">
