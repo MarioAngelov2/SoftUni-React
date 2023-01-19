@@ -7,7 +7,6 @@ import Create from "./components/Create";
 import Edit from "./components/Edit";
 import MyPets from "./components/MyPets";
 import Footer from "./components/Footer";
-import { isAuthenticated } from "./services/authService";
 import * as authService from './services/authService'
 
 import { useState, useEffect } from "react";
@@ -25,15 +24,23 @@ function App() {
     })
   }, []);
 
+  const onLogin = (username) => {
+
+    setUserInfo({
+      isAuthenticated: true,
+      user: username,
+    })
+  }
+
   return (
     <div className="App">
       <div id="container">
-        <Header />
+        <Header {...userInfo} />
 
         <main id="site-content">
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login onLogin={onLogin} />} />
             <Route path="/register" element={<Register />} />
             <Route path="/my-pets" element={<MyPets />} />
             <Route path="/create" element={<Create />} />
